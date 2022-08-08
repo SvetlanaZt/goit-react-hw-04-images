@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import css from './Searchbar.module.css'
+import css from './Searchbar.module.css';
+import PropTypes from 'prop-types';
 
 export default function Searchbar({ onClick }) {
     const [name, setName] = useState('');
@@ -34,4 +35,8 @@ export default function Searchbar({ onClick }) {
 </header>
 )
 }
+
+Searchbar.propTypes = {
+    onClick: PropTypes.func.isRequired
+};
 

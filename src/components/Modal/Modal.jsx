@@ -11,18 +11,19 @@ export default function Modal({ largeImage, alt, closeModal}) {
      }
     }
 
-    useEffect(() => {
-    window.addEventListener('keydown', handelKeyDown)
-        return () => {
-    window.removeEventListener('keydown', handelKeyDown)
-        }
-    },)
-    
- const handelKeyDown = evt => {
+  useEffect(() => {
+    const handelKeyDown = evt => {
     if (evt.code === 'Escape') {
       closeModal(true)
     }
     }
+    window.addEventListener('keydown', handelKeyDown)
+        return () => {
+    window.removeEventListener('keydown', handelKeyDown)
+        }
+    },[closeModal])
+    
+
      return (
       <div className={css.overlay} onClick={handelBackdrop}>
         <div className={css.modal}>

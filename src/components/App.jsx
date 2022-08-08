@@ -38,11 +38,13 @@ export const App = () => {
         .catch(error => setError({ error }), setStatus('rejected'))
   },[imgName, page, per_page, setError] )
 
+
   const takeNameImg = (nameImg) => {
-   console.log(imgName)
-    setImgName( nameImg.name );
-    setPage(1);
-    setDataImgs([]); 
+    if (nameImg !== imgName) {
+      setImgName(nameImg.name);
+      setPage(1);
+      setDataImgs([]);
+    }
   }
 
   const showModalToggle = (item) => { 
